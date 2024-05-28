@@ -1,1 +1,7 @@
-<p>product-list works!</p>
+<div *ngIf="products.length">
+  <div *ngFor="let product of products">
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.description }}</p>
+    <p><strong>Price:</strong> {{ product.price }}</p>
+  </div>
+</div>
