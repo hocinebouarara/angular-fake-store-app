@@ -1,9 +1,20 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
+  private baseUrl = 'https://fakestoreapi.com/products';
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
+
+  getProducts(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
+
+  getProduct(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
 }
